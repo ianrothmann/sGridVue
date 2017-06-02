@@ -1,3 +1,2 @@
-/**
- * Created by ian on 2017/06/02.
- */
+Vue.component('s-grid', require('./components/Grid.vue'));
+Vue.component('s-cell', require('./components/GridCell.vue'));
