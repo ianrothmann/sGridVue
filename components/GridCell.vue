@@ -16,51 +16,54 @@
             offsetLg : [Number,String],
             offsetXl : [Number,String],
         },
-        methods : {
-            createClass(breakpoint,cols){
-                return 's-grid-cell-'+breakpoint+'-'+cols;
-            },
-            createOffsetClass(breakpoint,cols){
-                return 's-grid-cell-offset-'+breakpoint+'-'+cols;
-            }
-        },
-        render(h) {
-            const classes=[
-                's-grid-cell',
-                this.createClass('xs',this.xs),
-            ];
-            if(this.sm){
-                classes.push(this.createClass('sm',this.sm));
-            }
-            if(this.md){
-                classes.push(this.createClass('md',this.md));
-            }
-            if(this.lg){
-                classes.push(this.createClass('lg',this.lg));
-            }
-            if(this.xl){
-                classes.push(this.createClass('xl',this.xl));
+        functional : true,
+        render(h,c){
+            function isset(val){
+                return c.props[val]!==undefined&&c.props[val];
             }
 
-            if(this.offsetXs){
-                classes.push(this.createOffsetClass('sm',this.offsetXs));
+            function createClass(breakpoint,cols){
+                return 's-grid-cell-'+breakpoint+'-'+cols;
             }
-            if(this.offsetSm){
-                classes.push(this.createOffsetClass('sm',this.offsetSm));
+            function createOffsetClass(breakpoint,cols){
+                return 's-grid-cell-offset-'+breakpoint+'-'+cols;
             }
-            if(this.offsetMd){
-                classes.push(this.createOffsetClass('md',this.offsetMd));
+            const classes=[
+                's-grid-cell',
+                createClass('xs',c.props.xs),
+            ];
+            if(isset('sm')){
+                classes.push(createClass('sm',c.props.sm));
             }
-            if(this.offsetLg){
-                classes.push(this.createOffsetClass('lg',this.offsetLg));
+            if(isset('md')){
+                classes.push(createClass('md',c.props.md));
             }
-            if(this.offsetXl){
-                classes.push(this.createOffsetClass('xl',this.offsetXl));
+            if(isset('lg')){
+                classes.push(createClass('lg',c.props.lg));
+            }
+            if(isset('xl')){
+                classes.push(createClass('xl',c.props.xl));
+            }
+
+            if(isset('offsetXs')){
+                classes.push(createOffsetClass('sm',c.props.offsetXs));
+            }
+            if(isset('offsetSm')){
+                classes.push(createOffsetClass('sm',c.props.offsetSm));
+            }
+            if(isset('offsetMd')){
+                classes.push(createOffsetClass('md',c.props.offsetMd));
+            }
+            if(isset('offsetLg')){
+                classes.push(createOffsetClass('lg',c.props.offsetLg));
+            }
+            if(isset('offsetXl')){
+                classes.push(createOffsetClass('xl',c.props.offsetXl));
             }
 
             return h('div',{
                 'class':classes
-            },this.$slots.default);
+            },c.children);
         }
     }
 </script>

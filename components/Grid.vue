@@ -1,10 +1,11 @@
 <script>
     export default {
+        functional : true,
         props:{
-            vTop : Boolean,
-            vCenter : Boolean,
-            vStretch : Boolean,
-            vBottom : Boolean,
+            top : Boolean,
+            center : Boolean,
+            stretch : Boolean,
+            bottom : Boolean,
             hCenter : Boolean,
             hStart : Boolean,
             hEnd : Boolean,
@@ -12,41 +13,46 @@
             columns : Boolean,
             reverse : Boolean,
         },
-        render(h) {
+        render(h,c) {
+            function isset(val){
+                return c.props[val]!==undefined&&c.props[val];
+            }
+
             let vClass='s-grid-top';
-            if(this.vCenter)
+            if(isset('center'))
                 vClass='s-grid-center';
-            if(this.vStretch)
+            if(isset('stretch'))
                 vClass='s-grid-stretch';
-            if(this.vBottom)
+            if(isset('bottom'))
                 vClass='s-grid-bottom';
 
+            
             let hClass=null;
-            if(this.hCenter)
+            if(isset('hCenter'))
                 hClass='s-grid-justify-center';
 
-            if(this.hStart)
+            if(isset('hStart'))
                 hClass='s-grid-justify-start';
 
-            if(this.hEnd)
+            if(isset('hEnd'))
                 hClass='s-grid-justify-end';
 
             let dClass=null;
 
-            if(this.rows)
+            if(isset('rows'))
                 dClass='s-grid-row';
 
-            if(this.columns)
+            if(isset('columns'))
                 dClass='s-grid-column';
 
-            if(this.reverse&&!this.rows&&!this.columns)
+            if(isset('reverse')&&!isset('rows')&&!isset('this.columns'))
                 dClass='s-grid-row-reverse';
-            else if(this.reverse)
+            else if(isset('reverse'))
                 dClass+='-reverse';
 
             const classes=[vClass,hClass,dClass];
 
-            return h('div',{'class':classes},this.$slots.default);
+            return h('div',{'class':classes},c.children);
         }
     }
 </script>
