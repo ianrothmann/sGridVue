@@ -61,9 +61,7 @@
                 classes.push(createOffsetClass('xl',c.props.offsetXl));
             }
 
-            return h('div',{
-                'class':classes
-            },c.children);
+            return h('div',Object.assign({'class':classes},c.data),c.children);
         }
     }
 </script>

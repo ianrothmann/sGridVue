@@ -52,7 +52,7 @@
 
             const classes=[vClass,hClass,dClass];
 
-            return h('div',{'class':classes},c.children);
+            return h('div',Object.assign({'class':classes},c.data),c.children);
         }
     }
 </script>
