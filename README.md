@@ -20,9 +20,16 @@ In your app.styl be sure to include:
 ## Usage
 
 ```html
-  <s-grid center reverse>
+  <s-grid stretch reverse>
        <s-cell md="4">Content here</s-cell>
        <s-cell md="4">Content here</s-cell>
+       <s-cell md="4">Content here</s-cell>
+  </s-grid>
+```    
+
+```html
+  <s-grid>
+       <s-cell md="4" offset-md="4">Offset content here</s-cell>
        <s-cell md="4">Content here</s-cell>
   </s-grid>
 ```    
