@@ -19,12 +19,18 @@ In your app.styl be sure to include:
 
 ## Usage
 
-```
+```html
   <s-grid center reverse>
        <s-cell md="4">Content here</s-cell>
        <s-cell md="4">Content here</s-cell>
        <s-cell md="4">Content here</s-cell>
   </s-grid>
+```    
+
+```html
+  <s-grid h-center>
+            <s-cell md="6" >Centered Content</s-cell>
+   </s-grid>
 ```        
 
 ### s-grid
