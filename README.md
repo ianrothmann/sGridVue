@@ -75,6 +75,8 @@ Offsets are also supported:
 * offset-sm
 * etc.
 
+The `s-cell` has defined margins by default. Use `no-margins` to clear.
+
 The breakpoints are:
 ```
     xs: 0,
