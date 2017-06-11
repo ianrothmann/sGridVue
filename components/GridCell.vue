@@ -15,6 +15,7 @@
             offsetMd : [Number,String],
             offsetLg : [Number,String],
             offsetXl : [Number,String],
+            noMargins : Boolean
         },
         functional : true,
         render(h,c){
@@ -60,8 +61,12 @@
             if(isset('offsetXl')){
                 classes.push(createOffsetClass('xl',c.props.offsetXl));
             }
+            const style={};
+            if(isset('noMargins')){
+                style['margin']=0;
+            }
 
-            return h('div',Object.assign({'class':classes},c.data),c.children);
+            return h('div',Object.assign({'class':classes,style},c.data),c.children);
         }
     }
 </script>
