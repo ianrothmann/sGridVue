@@ -1,8 +1,8 @@
 {
   "name": "s-grid-vue",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A set of Vue 2 components that wrap sGrid",
-  "main": "s-grid-vue.js",
+  "main": "dist/s-grid-vue.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
